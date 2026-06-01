@@ -1,15 +1,29 @@
 "use client";
 
-const col = {
-  Services: ["Intelligence Artificielle", "Développement Logiciel", "Transformation Digitale", "Data & Analytics", "Cybersécurité"],
-  Entreprise: ["À propos", "Valeurs", "Processus", "Carrières", "Blog"],
-  Contact: ["Nous contacter", "Devis gratuit", "Support", "Partenariats"],
+const col: Record<string, { label: string; href: string }[]> = {
+  Services: [
+    { label: "Intelligence Artificielle", href: "#services" },
+    { label: "Développement Logiciel", href: "#services" },
+    { label: "Transformation Digitale", href: "#services" },
+    { label: "Data & Analytics", href: "#services" },
+    { label: "Cybersécurité", href: "#services" },
+  ],
+  Entreprise: [
+    { label: "À propos", href: "#about" },
+    { label: "Valeurs", href: "#valeurs" },
+    { label: "Processus", href: "#processus" },
+    { label: "Nous contacter", href: "#contact" },
+  ],
+  Contact: [
+    { label: "Démarrer un projet", href: "#contact" },
+    { label: "Email", href: "mailto:contact@wehightech.com" },
+  ],
 };
 
 const socials = [
-  { label: "LinkedIn", href: "#" },
-  { label: "X (Twitter)", href: "#" },
-  { label: "GitHub", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/wehightech" },
+  { label: "X (Twitter)", href: "https://x.com/wehightech" },
+  { label: "GitHub", href: "https://github.com/wehightech" },
 ];
 
 export default function Footer() {
@@ -49,9 +63,9 @@ export default function Footer() {
               <h4 className="text-[10px] font-black text-[#6A6A85]/50 uppercase tracking-[0.2em] mb-5">{title}</h4>
               <ul className="space-y-3">
                 {items.map(item => (
-                  <li key={item}>
-                    <a href="#" className="text-[12px] text-[#6A6A85] hover:text-[#BEFF47] transition-colors duration-200 font-light">
-                      {item}
+                  <li key={item.label}>
+                    <a href={item.href} className="text-[12px] text-[#6A6A85] hover:text-[#BEFF47] transition-colors duration-200 font-light">
+                      {item.label}
                     </a>
                   </li>
                 ))}

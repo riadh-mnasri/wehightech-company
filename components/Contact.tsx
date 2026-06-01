@@ -8,11 +8,25 @@ export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => setSent(true), 500);
+    setLoading(true);
+    setError("");
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    setLoading(false);
+    if (res.ok) {
+      setSent(true);
+    } else {
+      setError("Une erreur est survenue. Réessayez ou écrivez-nous directement.");
+    }
   };
 
   const inputClass = "w-full px-4 py-3.5 bg-[#0C0C12] border border-white/6 text-white text-sm placeholder-[#6A6A85] focus:outline-none focus:border-[#BEFF47]/40 transition-colors duration-200 font-light rounded-none";
@@ -121,10 +135,13 @@ export default function Contact() {
                   <label className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Projet *</label>
                   <textarea required rows={5} value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Décrivez votre projet, vos objectifs et vos délais..." className={`${inputClass} resize-none`} />
                 </div>
-                <button type="submit"
-                  className="w-full py-4 bg-[#BEFF47] text-[#050508] font-bold text-sm hover:bg-white transition-colors duration-200 tracking-wide"
+                {error && (
+                  <p className="text-[12px] text-red-400 text-center">{error}</p>
+                )}
+                <button type="submit" disabled={loading}
+                  className="w-full py-4 bg-[#BEFF47] text-[#050508] font-bold text-sm hover:bg-white transition-colors duration-200 tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Envoyer le message →
+                  {loading ? "Envoi en cours…" : "Envoyer le message →"}
                 </button>
                 <p className="text-[10px] text-[#6A6A85] text-center font-light">
                   En soumettant ce formulaire, vous acceptez notre politique de confidentialité.
