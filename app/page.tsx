@@ -1,8 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
+import Clients from "@/components/Clients";
 import Services from "@/components/Services";
 import AISection from "@/components/AISection";
+import Stats from "@/components/Stats";
+import Sectors from "@/components/Sectors";
 import Values from "@/components/Values";
 import Process from "@/components/Process";
 import About from "@/components/About";
@@ -16,8 +19,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <TechMarquee />
+      <Clients />
       <Services />
       <AISection />
+      <Stats />
+      <Sectors />
       <Values />
       <Process />
       <About />
