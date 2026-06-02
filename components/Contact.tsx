@@ -76,7 +76,7 @@ export default function Contact() {
           >
             {[
               { icon: Mail, label: "Email", value: "contact@wehightech.com" },
-              { icon: Phone, label: "Téléphone", value: "+33 1 XX XX XX XX" },
+              { icon: Phone, label: "Téléphone", value: "01 78 53 87 80" },
               { icon: MapPin, label: "Siège", value: "Paris, France" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="card-glow rounded-xl p-5 flex items-center gap-4">
