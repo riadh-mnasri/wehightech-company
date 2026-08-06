@@ -119,21 +119,21 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="card-glow rounded-2xl p-8 space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Nom *</label>
-                    <input type="text" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Jean Dupont" className={inputClass} />
+                    <label htmlFor="contact-name" className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Nom *</label>
+                    <input id="contact-name" type="text" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Jean Dupont" className={inputClass} />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Email *</label>
-                    <input type="email" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="jean@entreprise.com" className={inputClass} />
+                    <label htmlFor="contact-email" className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Email *</label>
+                    <input id="contact-email" type="email" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="jean@entreprise.com" className={inputClass} />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Entreprise</label>
-                  <input type="text" value={form.company} onChange={e => setForm({...form, company: e.target.value})} placeholder="Nom de votre société" className={inputClass} />
+                  <label htmlFor="contact-company" className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Entreprise</label>
+                  <input id="contact-company" type="text" value={form.company} onChange={e => setForm({...form, company: e.target.value})} placeholder="Nom de votre société" className={inputClass} />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Projet *</label>
-                  <textarea required rows={5} value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Décrivez votre projet, vos objectifs et vos délais..." className={`${inputClass} resize-none`} />
+                  <label htmlFor="contact-message" className="block text-[10px] font-bold text-[#6A6A85] tracking-[0.15em] uppercase mb-2">Projet *</label>
+                  <textarea id="contact-message" required rows={5} value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Décrivez votre projet, vos objectifs et vos délais..." className={`${inputClass} resize-none`} />
                 </div>
                 {error && (
                   <p className="text-[12px] text-red-400 text-center">{error}</p>
