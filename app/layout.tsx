@@ -9,20 +9,20 @@ const baseUrl = "https://wehightech.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "WeHighTech — Excellence Technologique & IA",
+  title: "WeHighTech : Excellence Technologique & IA",
   description: "WeHighTech développe des solutions technologiques d'excellence propulsées par l'intelligence artificielle. Fondé en 2017 à Paris.",
   openGraph: {
     type: "website",
     url: baseUrl,
     siteName: "WeHighTech",
-    title: "WeHighTech — Excellence Technologique & IA",
+    title: "WeHighTech : Excellence Technologique & IA",
     description: "Solutions technologiques d'excellence propulsées par l'IA. Développement logiciel, transformation digitale, data & cybersécurité.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WeHighTech" }],
     locale: "fr_FR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "WeHighTech — Excellence Technologique & IA",
+    title: "WeHighTech : Excellence Technologique & IA",
     description: "Solutions technologiques d'excellence propulsées par l'IA.",
     images: ["/og-image.png"],
   },

@@ -44,7 +44,7 @@ const phases = [
     icon: RefreshCcw,
     title: "Adoption & Évolution",
     subtitle: "On reste à vos côtés",
-    desc: "Formation de vos équipes, support continu et itérations pour maximiser l'adoption. Votre transformation n'est pas un projet — c'est un voyage.",
+    desc: "Formation de vos équipes, support continu et itérations pour maximiser l'adoption. Votre transformation n'est pas un projet, c'est un voyage.",
     items: [
       "Conduite du changement",
       "Formation des équipes métier",

@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 
 const values = [
   { num: "01", title: "Qualité sans compromis", desc: "La qualité n'est pas un objectif, c'est notre mode de fonctionnement. Chaque livrable est soumis à nos standards les plus exigeants." },
-  { num: "02", title: "Excellence opérationnelle", desc: "Conception, développement, tests — nous visons l'excellence à chaque étape. Aucun détail n'est laissé au hasard." },
+  { num: "02", title: "Excellence opérationnelle", desc: "Conception, développement, tests : nous visons l'excellence à chaque étape. Aucun détail n'est laissé au hasard." },
   { num: "03", title: "Innovation continue", desc: "En veille permanente, nous intégrons les meilleures pratiques pour vous offrir un avantage compétitif réel." },
   { num: "04", title: "Sens du service", desc: "Nous écoutons, conseillons, livrons. La satisfaction de nos clients est la mesure de notre succès." },
   { num: "05", title: "Transparence totale", desc: "Communication ouverte, reporting clair, budgets maîtrisés. Toujours informés, sans aucune surprise." },

@@ -18,15 +18,15 @@ export async function POST(req: Request) {
     from: "WeHighTech <contact@wehightech.com>",
     to: ["riadh.mnasri@gmail.com"],
     replyTo: email,
-    subject: `Nouveau message de ${name}${company ? ` — ${company}` : ""}`,
-    text: `Nom : ${name}\nEmail : ${email}\nEntreprise : ${company || "—"}\n\n${message}`,
+    subject: `Nouveau message de ${name}${company ? ` (${company})` : ""}`,
+    text: `Nom : ${name}\nEmail : ${email}\nEntreprise : ${company || "Non renseignée"}\n\n${message}`,
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:auto">
-        <h2 style="color:#BEFF47;background:#050508;padding:16px 24px;margin:0">WeHighTech — Nouveau message</h2>
+        <h2 style="color:#BEFF47;background:#050508;padding:16px 24px;margin:0">WeHighTech : nouveau message</h2>
         <div style="padding:24px;background:#0C0C12;color:#EEEEF5">
           <p><strong>Nom :</strong> ${name}</p>
           <p><strong>Email :</strong> <a href="mailto:${email}" style="color:#BEFF47">${email}</a></p>
-          <p><strong>Entreprise :</strong> ${company || "—"}</p>
+          <p><strong>Entreprise :</strong> ${company || "Non renseignée"}</p>
           <hr style="border-color:#ffffff11;margin:20px 0"/>
           <p style="white-space:pre-wrap">${message}</p>
         </div>

@@ -61,7 +61,7 @@ export default function About() {
             <div className="card-glow rounded-2xl p-8 mb-6 relative">
               <div className="text-5xl text-[#BEFF47]/20 font-black leading-none mb-4">&ldquo;</div>
               <p className="text-[16px] text-white/70 leading-relaxed font-light italic">
-                La qualité n&apos;est pas un buzzword — c&apos;est la valeur fondamentale
+                La qualité n&apos;est pas un buzzword, c&apos;est la valeur fondamentale
                 qui imprègne chaque aspect de nos opérations, de nos produits
                 à nos relations clients.
               </p>

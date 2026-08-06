@@ -13,7 +13,7 @@ const kpis = [
 const capabilities = [
   { title: "Agents IA autonomes", desc: "Automatisez des workflows complexes avec des agents capables de raisonner et d'agir en autonomie." },
   { title: "LLM & Assistants métier", desc: "Modèles de langage formés sur vos données internes pour un assistant précis et contextuel." },
-  { title: "RAG & Knowledge Base", desc: "IA connectée à votre documentation — réponses sourcées, vérifiables et toujours à jour." },
+  { title: "RAG & Knowledge Base", desc: "IA connectée à votre documentation, avec réponses sourcées, vérifiables et toujours à jour." },
   { title: "Vision par ordinateur", desc: "Détection, classification et contrôle qualité automatisé par analyse d'image en temps réel." },
   { title: "Prédiction & Forecasting", desc: "Anticipez les tendances, optimisez les stocks avec des modèles prédictifs sur mesure." },
   { title: "Automatisation cognitive", desc: "Transformez vos processus répétitifs en workflows intelligents pilotés par l'IA." },
