@@ -75,7 +75,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] text-[#6A6A85]/50 font-light">© {year} WeHighTech. Tous droits réservés.</p>
+          <p className="text-[11px] text-[#6A6A85]/50 font-light">
+            © {year} WeHighTech. Tous droits réservés. Fondé par{" "}
+            <a href="https://riadh-mnasri.pro" className="hover:text-[#BEFF47] transition-colors duration-200">
+              Riadh MNASRI
+            </a>
+          </p>
           <div className="flex items-center gap-6 text-[11px] text-[#6A6A85]/50 font-light">
             {["Mentions légales", "Confidentialité", "CGV"].map(l => (
               <a key={l} href="#" className="hover:text-[#BEFF47] transition-colors duration-200">{l}</a>
