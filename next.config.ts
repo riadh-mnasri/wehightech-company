@@ -8,6 +8,22 @@ const nextConfig: NextConfig = {
     basePath: "/wehightech-company",
     images: { unoptimized: true },
   }),
+  ...(!isGitHubPages && {
+    async redirects() {
+      return [
+        {
+          source: "/index.php/contact",
+          destination: "/#contact",
+          permanent: true,
+        },
+        {
+          source: "/index.php/:path*",
+          destination: "/",
+          permanent: true,
+        },
+      ];
+    },
+  }),
 };
 
 export default nextConfig;
