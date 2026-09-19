@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
@@ -16,22 +17,24 @@ import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen bg-[#050508]">
-      <Navbar />
-      <Hero />
-      <TechMarquee />
-      <Clients />
-      <Services />
-      <Transformation />
-      <AISection />
-      <Stats />
-      <Sectors />
-      <Values />
-      <Process />
-      <About />
-      <Contact />
-      <Footer />
-      <BackToTop />
-    </main>
+    <MotionConfig reducedMotion="user">
+      <main className="flex flex-col min-h-screen bg-[#050508]">
+        <Navbar />
+        <Hero />
+        <TechMarquee />
+        <Clients />
+        <Services />
+        <Transformation />
+        <AISection />
+        <Stats />
+        <Sectors />
+        <Values />
+        <Process />
+        <About />
+        <Contact />
+        <Footer />
+        <BackToTop />
+      </main>
+    </MotionConfig>
   );
 }

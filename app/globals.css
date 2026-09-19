@@ -35,6 +35,20 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--lime); }
 
+::selection {
+  background: var(--lime);
+  color: var(--bg);
+}
+
+/* ── Keyboard focus ── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
 /* ── Gradient border card ── */
 .card-glow {
   background: linear-gradient(var(--surface), var(--surface)) padding-box,
@@ -98,6 +112,7 @@ body {
   animation: marquee 22s linear infinite;
   will-change: transform;
 }
+.marquee-track:hover { animation-play-state: paused; }
 
 /* ── Pulse dot ── */
 @keyframes pulse-dot {
@@ -105,3 +120,15 @@ body {
   50%       { opacity: 0.4; transform: scale(0.7); }
 }
 .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* ── Respect reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track,
+  .pulse-dot { animation: none; }
+  .reveal-line > span {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
