@@ -13,13 +13,18 @@ const nextConfig: NextConfig = {
       return [
         {
           source: "/index.php/contact",
-          destination: "/#contact",
+          destination: "/fr#contact",
           permanent: true,
         },
         {
           source: "/index.php/:path*",
-          destination: "/",
+          destination: "/fr",
           permanent: true,
+        },
+        {
+          source: "/",
+          destination: "/fr",
+          permanent: false,
         },
       ];
     },

@@ -2,18 +2,44 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import type { Lang } from "@/lib/i18n";
 
-const steps = [
-  { num: "01", title: "Découverte", desc: "Analyse de vos besoins, de votre SI et de vos objectifs métier." },
-  { num: "02", title: "Conception", desc: "Architecture technique, choix technologiques et prototypage." },
-  { num: "03", title: "Développement", desc: "Sprints agiles, revues de code et tests automatisés." },
-  { num: "04", title: "Déploiement", desc: "Mise en production, monitoring et documentation." },
-  { num: "05", title: "Support", desc: "Maintenance proactive et évolutions continues." },
-];
+const content: Record<Lang, {
+  eyebrow: string;
+  headingPrefix: string;
+  headingAccent: string;
+  steps: { num: string; title: string; desc: string }[];
+}> = {
+  fr: {
+    eyebrow: "Notre processus",
+    headingPrefix: "Une méthode ",
+    headingAccent: "éprouvée.",
+    steps: [
+      { num: "01", title: "Découverte", desc: "Analyse de vos besoins, de votre SI et de vos objectifs métier." },
+      { num: "02", title: "Conception", desc: "Architecture technique, choix technologiques et prototypage." },
+      { num: "03", title: "Développement", desc: "Sprints agiles, revues de code et tests automatisés." },
+      { num: "04", title: "Déploiement", desc: "Mise en production, monitoring et documentation." },
+      { num: "05", title: "Support", desc: "Maintenance proactive et évolutions continues." },
+    ],
+  },
+  en: {
+    eyebrow: "Our process",
+    headingPrefix: "A ",
+    headingAccent: "proven method.",
+    steps: [
+      { num: "01", title: "Discovery", desc: "Analysis of your needs, IT systems and business goals." },
+      { num: "02", title: "Design", desc: "Technical architecture, technology choices and prototyping." },
+      { num: "03", title: "Development", desc: "Agile sprints, code reviews and automated testing." },
+      { num: "04", title: "Deployment", desc: "Production rollout, monitoring and documentation." },
+      { num: "05", title: "Support", desc: "Proactive maintenance and continuous evolution." },
+    ],
+  },
+};
 
-export default function Process() {
+export default function Process({ lang }: { lang: Lang }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const t = content[lang];
 
   return (
     <section ref={ref} className="bg-[#0C0C12] py-24 relative overflow-hidden">
@@ -25,7 +51,7 @@ export default function Process() {
             className="flex items-center gap-2 mb-5"
           >
             <div className="w-4 h-px bg-[#BEFF47]" />
-            <span className="text-[10px] font-bold text-[#BEFF47] tracking-[0.18em] uppercase">Notre processus</span>
+            <span className="text-[10px] font-bold text-[#BEFF47] tracking-[0.18em] uppercase">{t.eyebrow}</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -33,12 +59,12 @@ export default function Process() {
             transition={{ delay: 0.08 }}
             className="text-3xl md:text-4xl font-black text-white tracking-tight"
           >
-            Une méthode <span className="text-[#BEFF47]">éprouvée.</span>
+            {t.headingPrefix}<span className="text-[#BEFF47]">{t.headingAccent}</span>
           </motion.h2>
         </div>
 
         <div className="grid md:grid-cols-5 gap-px bg-white/4">
-          {steps.map((s, i) => (
+          {t.steps.map((s, i) => (
             <motion.div
               key={s.num}
               initial={{ opacity: 0, y: 12 }}
@@ -49,7 +75,7 @@ export default function Process() {
               <div className="text-[10px] font-black text-white/8 tracking-[0.2em] mb-5">{s.num}</div>
               <div className="w-4 h-px bg-[#BEFF47] mb-4 group-hover:w-8 transition-all duration-400" />
               <h4 className="text-[13px] font-bold text-white mb-2">{s.title}</h4>
-              <p className="text-[11px] text-[#6A6A85] leading-relaxed font-light">{s.desc}</p>
+              <p className="text-[11px] text-[#8A8AA0] leading-relaxed font-light">{s.desc}</p>
             </motion.div>
           ))}
         </div>

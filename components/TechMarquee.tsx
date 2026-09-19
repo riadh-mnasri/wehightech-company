@@ -13,7 +13,7 @@ export default function TechMarquee() {
       <div className="flex marquee-track">
         {items.map((t, i) => (
           <div key={i} className="flex items-center gap-8 px-8 flex-shrink-0">
-            <span className="text-[11px] font-bold text-[#6A6A85]/50 tracking-[0.18em] uppercase whitespace-nowrap">
+            <span className="text-[11px] font-bold text-[#8A8AA0]/50 tracking-[0.18em] uppercase whitespace-nowrap">
               {t}
             </span>
             <span className="w-1 h-1 rounded-full bg-[#BEFF47]/25 flex-shrink-0" />

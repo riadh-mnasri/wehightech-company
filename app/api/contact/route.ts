@@ -1,15 +1,23 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { isLang, type Lang } from "@/lib/i18n";
+
+const errors: Record<Lang, { missingFields: string; missingConfig: string }> = {
+  fr: { missingFields: "Champs requis manquants", missingConfig: "Configuration email manquante" },
+  en: { missingFields: "Missing required fields", missingConfig: "Missing email configuration" },
+};
 
 export async function POST(req: Request) {
-  const { name, email, company, message } = await req.json();
+  const { name, email, company, message, lang: rawLang } = await req.json();
+  const lang: Lang = isLang(rawLang) ? rawLang : "fr";
+  const t = errors[lang];
 
   if (!name || !email || !message) {
-    return NextResponse.json({ error: "Champs requis manquants" }, { status: 400 });
+    return NextResponse.json({ error: t.missingFields }, { status: 400 });
   }
 
   if (!process.env.RESEND_API_KEY) {
-    return NextResponse.json({ error: "Configuration email manquante" }, { status: 500 });
+    return NextResponse.json({ error: t.missingConfig }, { status: 500 });
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -19,7 +27,7 @@ export async function POST(req: Request) {
     to: ["riadh.mnasri@gmail.com"],
     replyTo: email,
     subject: `Nouveau message de ${name}${company ? ` (${company})` : ""}`,
-    text: `Nom : ${name}\nEmail : ${email}\nEntreprise : ${company || "Non renseignée"}\n\n${message}`,
+    text: `Nom : ${name}\nEmail : ${email}\nEntreprise : ${company || "Non renseignée"}\nLangue : ${lang}\n\n${message}`,
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:auto">
         <h2 style="color:#BEFF47;background:#050508;padding:16px 24px;margin:0">WeHighTech : nouveau message</h2>
@@ -27,6 +35,7 @@ export async function POST(req: Request) {
           <p><strong>Nom :</strong> ${name}</p>
           <p><strong>Email :</strong> <a href="mailto:${email}" style="color:#BEFF47">${email}</a></p>
           <p><strong>Entreprise :</strong> ${company || "Non renseignée"}</p>
+          <p><strong>Langue du site :</strong> ${lang}</p>
           <hr style="border-color:#ffffff11;margin:20px 0"/>
           <p style="white-space:pre-wrap">${message}</p>
         </div>

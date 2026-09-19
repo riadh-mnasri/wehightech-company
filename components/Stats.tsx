@@ -2,13 +2,31 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import type { Lang } from "@/lib/i18n";
 
-const stats = [
-  { target: 150, suffix: "+",    label: "Projets livrés",           desc: "Depuis 2017" },
-  { target: 8,   suffix: " ans", label: "D'expertise",              desc: "Au service de l'innovation" },
-  { target: 98,  suffix: "%",    label: "Satisfaction client",      desc: "Mesuré sur chaque projet" },
-  { target: 10,  suffix: "+",    label: "Clients grands comptes",   desc: "CAC40 & leaders nationaux" },
-];
+const content: Record<Lang, {
+  eyebrow: string;
+  stats: { target: number; suffix: string; label: string; desc: string }[];
+}> = {
+  fr: {
+    eyebrow: "WeHighTech en chiffres",
+    stats: [
+      { target: 150, suffix: "+", label: "Projets livrés", desc: "Depuis 2017" },
+      { target: 8, suffix: " ans", label: "D'expertise", desc: "Au service de l'innovation" },
+      { target: 98, suffix: "%", label: "Satisfaction client", desc: "Mesuré sur chaque projet" },
+      { target: 10, suffix: "+", label: "Clients grands comptes", desc: "CAC40 & leaders nationaux" },
+    ],
+  },
+  en: {
+    eyebrow: "WeHighTech in numbers",
+    stats: [
+      { target: 150, suffix: "+", label: "Projects delivered", desc: "Since 2017" },
+      { target: 8, suffix: " yrs", label: "Of expertise", desc: "Driving innovation" },
+      { target: 98, suffix: "%", label: "Client satisfaction", desc: "Measured on every project" },
+      { target: 10, suffix: "+", label: "Major accounts", desc: "CAC40 & national leaders" },
+    ],
+  },
+};
 
 function Counter({ target, suffix, duration, start }: {
   target: number; suffix: string; duration: number; start: boolean;
@@ -31,9 +49,10 @@ function Counter({ target, suffix, duration, start }: {
   return <>{count}{suffix}</>;
 }
 
-export default function Stats() {
+export default function Stats({ lang }: { lang: Lang }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const t = content[lang];
 
   return (
     <section ref={ref} className="bg-[#050508] py-24 relative overflow-hidden">
@@ -47,12 +66,12 @@ export default function Stats() {
         >
           <div className="w-4 h-px bg-[#BEFF47]" />
           <span className="text-[10px] font-bold text-[#BEFF47] tracking-[0.18em] uppercase">
-            WeHighTech en chiffres
+            {t.eyebrow}
           </span>
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
-          {stats.map((s, i) => (
+          {t.stats.map((s, i) => (
             <motion.div
               key={s.label}
               initial={{ opacity: 0, y: 20 }}
@@ -64,7 +83,7 @@ export default function Stats() {
                 <Counter target={s.target} suffix={s.suffix} duration={1600 + i * 200} start={inView} />
               </div>
               <div className="text-[14px] font-bold text-white mb-1">{s.label}</div>
-              <div className="text-[11px] text-[#6A6A85] font-light">{s.desc}</div>
+              <div className="text-[11px] text-[#8A8AA0] font-light">{s.desc}</div>
               <div className="mt-5 w-6 h-px bg-[#BEFF47]/30 group-hover:w-10 transition-all duration-500" />
             </motion.div>
           ))}

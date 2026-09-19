@@ -1,4 +1,6 @@
 import { MotionConfig } from "framer-motion";
+import { notFound } from "next/navigation";
+import { isLang } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
@@ -14,26 +16,34 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import CursorGlow from "@/components/CursorGlow";
+import HashScroll from "@/components/HashScroll";
 
-export default function Home() {
+export default async function Home({ params }: PageProps<"/[lang]">) {
+  const { lang: rawLang } = await params;
+  if (!isLang(rawLang)) notFound();
+  const lang = rawLang;
+
   return (
     <MotionConfig reducedMotion="user">
+      <CursorGlow />
+      <HashScroll />
       <main className="flex flex-col min-h-screen bg-[#050508]">
-        <Navbar />
-        <Hero />
+        <Navbar lang={lang} />
+        <Hero lang={lang} />
         <TechMarquee />
-        <Clients />
-        <Services />
-        <Transformation />
-        <AISection />
-        <Stats />
-        <Sectors />
-        <Values />
-        <Process />
-        <About />
-        <Contact />
-        <Footer />
-        <BackToTop />
+        <Clients lang={lang} />
+        <Services lang={lang} />
+        <Transformation lang={lang} />
+        <AISection lang={lang} />
+        <Stats lang={lang} />
+        <Sectors lang={lang} />
+        <Values lang={lang} />
+        <Process lang={lang} />
+        <About lang={lang} />
+        <Contact lang={lang} />
+        <Footer lang={lang} />
+        <BackToTop lang={lang} />
       </main>
     </MotionConfig>
   );

@@ -1,10 +1,26 @@
 import { ImageResponse } from "next/og";
+import { isLang, type Lang } from "@/lib/i18n";
 
-export const alt = "WeHighTech : Excellence Technologique & IA";
+export const alt = "WeHighTech";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function Image() {
+const copy: Record<Lang, { title: string; subtitle: string }> = {
+  fr: {
+    title: "Excellence Technologique & IA",
+    subtitle: "Développement logiciel, transformation digitale, data & cybersécurité.",
+  },
+  en: {
+    title: "Technology Excellence & AI",
+    subtitle: "Software development, digital transformation, data & cybersecurity.",
+  },
+};
+
+export default async function Image({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params;
+  const lang: Lang = isLang(rawLang) ? rawLang : "fr";
+  const { title, subtitle } = copy[lang];
+
   return new ImageResponse(
     (
       <div
@@ -53,7 +69,7 @@ export default function Image() {
             maxWidth: 950,
           }}
         >
-          Excellence Technologique &amp; IA
+          {title}
         </div>
         <div
           style={{
@@ -65,7 +81,7 @@ export default function Image() {
             maxWidth: 820,
           }}
         >
-          Développement logiciel, transformation digitale, data &amp; cybersécurité.
+          {subtitle}
         </div>
       </div>
     ),
