@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { Lang } from "@/lib/i18n";
 
 const content: Record<Lang, {
@@ -92,10 +93,8 @@ export default function Footer({ lang }: { lang: Lang }) {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
           <div className="col-span-2">
             {/* Logo */}
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-6 h-6 bg-[#BEFF47] flex items-center justify-center">
-                <span className="text-[#050508] text-[9px] font-black">WH</span>
-              </div>
+            <div className="flex items-center gap-2 mb-5">
+              <Image src="/logo-mark.png" alt="WeHighTech" width={32} height={30} className="w-8 h-auto" />
               <span className="text-[14px] font-black text-white">WeHighTech</span>
             </div>
             <p className="text-[13px] text-[#8A8AA0] leading-relaxed max-w-xs mb-6 font-light">

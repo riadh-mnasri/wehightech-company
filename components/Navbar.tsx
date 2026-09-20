@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import type { Lang } from "@/lib/i18n";
 
@@ -84,10 +85,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
         {/* Logo */}
-        <a href={`/${lang}`} className="flex items-center gap-2.5">
-          <div className="w-6 h-6 bg-[#BEFF47] flex items-center justify-center">
-            <span className="text-[#050508] text-[9px] font-black leading-none">WH</span>
-          </div>
+        <a href={`/${lang}`} className="flex items-center gap-2">
+          <Image src="/logo-mark.png" alt="WeHighTech" width={32} height={30} className="w-8 h-auto" priority />
           <span className="text-[14px] font-black tracking-tight text-white">WeHighTech</span>
         </a>
 
