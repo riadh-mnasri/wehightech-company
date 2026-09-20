@@ -10,6 +10,7 @@ import Transformation from "@/components/Transformation";
 import AISection from "@/components/AISection";
 import Stats from "@/components/Stats";
 import Sectors from "@/components/Sectors";
+import CaseStudies from "@/components/CaseStudies";
 import Values from "@/components/Values";
 import Process from "@/components/Process";
 import About from "@/components/About";
@@ -38,6 +39,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <AISection lang={lang} />
         <Stats lang={lang} />
         <Sectors lang={lang} />
+        <CaseStudies lang={lang} />
         <Values lang={lang} />
         <Process lang={lang} />
         <About lang={lang} />
