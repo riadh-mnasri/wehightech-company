@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Landmark, Zap, ShoppingCart } from "lucide-react";
+import { Landmark, Zap, ShoppingCart, Scale } from "lucide-react";
 import type { Lang } from "@/lib/i18n";
 import { useTilt } from "@/lib/useTilt";
 
@@ -29,7 +29,7 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
     labels: { challenge: "Contexte", approach: "Approche", outcome: "Résultat" },
     cases: [
       {
-        icon: Landmark, client: "Société Générale", sector: "Finance & Banque", period: "2024 — en cours",
+        icon: Landmark, client: "Société Générale", sector: "Finance & Banque", period: "2024 - en cours",
         title: "Moteur de risque de contrepartie",
         challenge: "Calculer en temps réel des métriques critiques de risque de contrepartie, dans un environnement bancaire fortement régulé, sur des volumes de données massifs.",
         approach: "Conception et déploiement d'un écosystème de microservices cloud-native sur Azure & Kubernetes, traitement des flux via Apache Spark et Kafka, optimisation algorithmique du traitement, TDD/BDD et Clean Code, CI/CD automatisé (GitHub/Jenkins). Intégration pionnière d'outils IA (GitHub Copilot, Claude) dans l'équipe.",
@@ -38,7 +38,7 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
         color: "from-blue-500/10 to-transparent", border: "border-blue-500/20 hover:border-blue-400/40", tag: "text-blue-400",
       },
       {
-        icon: Zap, client: "GRTgaz", sector: "Énergie & Utilities", period: "2022 — 2024",
+        icon: Zap, client: "GRTgaz", sector: "Énergie & Utilities", period: "2022 - 2024",
         title: "Plateforme de gestion de distribution énergétique",
         challenge: "Concevoir une plateforme événementielle capable d'absorber des flux de données temps réel, sur un système critique pour la distribution nationale de gaz.",
         approach: "Architecture microservices événementielle, développement backend Java/Kotlin et frontend TypeScript en programmation réactive (Reactor, Kafka), ateliers de cadrage avec les équipes métier, CI/CD sur GitLab, déploiements AWS pilotés par Terraform.",
@@ -47,13 +47,40 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
         color: "from-yellow-500/10 to-transparent", border: "border-yellow-500/20 hover:border-yellow-400/40", tag: "text-yellow-400",
       },
       {
-        icon: ShoppingCart, client: "Groupe Casino", sector: "Retail & Distribution", period: "2021 — 2022",
+        icon: ShoppingCart, client: "Groupe Casino", sector: "Retail & Distribution", period: "2021 - 2022",
         title: "Moteur de campagnes et d'offres",
         challenge: "Concevoir les APIs backend du moteur de campagnes et d'offres commerciales, à l'échelle d'un grand groupe de distribution.",
         approach: "Conception d'API en Kotlin et Java, pratiques TDD, BDD et programmation fonctionnelle, principes SOLID/KISS/DRY/YAGNI, intégration et déploiement continus sur GitLab et Google Cloud Platform.",
         outcome: "Un moteur de campagnes robuste et maintenable, livré en un peu plus d'un an, sur une plateforme cœur de l'activité commerciale du groupe.",
         tags: ["Kotlin", "Java", "PostgreSQL", "GCP", "Kubernetes"],
         color: "from-[#BEFF47]/10 to-transparent", border: "border-[#BEFF47]/20 hover:border-[#BEFF47]/40", tag: "text-[#BEFF47]",
+      },
+      {
+        icon: Zap, client: "Enedis", sector: "Énergie & Utilities", period: "2017 - 2020",
+        title: "Modernisation des systèmes de distribution électrique",
+        challenge: "Faire évoluer des systèmes critiques de distribution d'électricité tout en maintenant leur fiabilité, avec des responsabilités de conception d'architecture.",
+        approach: "Développement full-stack backend Java/Kotlin et frontend Angular/TypeScript, pratiques de craftsmanship (TDD, ATDD, BDD, DDD, architecture hexagonale, Clean Code), intégration continue et déploiements automatisés avec Ansible.",
+        outcome: "Une contribution de plus de trois ans à l'architecture et à la fiabilité d'un système critique pour la distribution électrique nationale.",
+        tags: ["Java", "Kotlin", "Angular", "PostgreSQL", "Kafka"],
+        color: "from-yellow-500/10 to-transparent", border: "border-yellow-500/20 hover:border-yellow-400/40", tag: "text-yellow-400",
+      },
+      {
+        icon: ShoppingCart, client: "Galeries Lafayette", sector: "Retail & Distribution", period: "2020",
+        title: "Développement full-stack en équipe craftsmanship",
+        challenge: "Analyser et concevoir techniquement de nouvelles fonctionnalités dans une équipe orientée craftsmanship, sur une plateforme retail exigeante.",
+        approach: "Développement full-stack (front, back, API) en Java/Kotlin et Angular/TypeScript, Clean Code, TDD, BDD, DDD, architecture hexagonale, revues de code et mob programming, partage de connaissances via des sessions techniques internes.",
+        outcome: "Livraison continue de fonctionnalités dans un cadre d'excellence technique, sur une plateforme déployée sur Google Cloud Platform.",
+        tags: ["Java", "Kotlin", "Angular", "Kubernetes", "GCP"],
+        color: "from-[#BEFF47]/10 to-transparent", border: "border-[#BEFF47]/20 hover:border-[#BEFF47]/40", tag: "text-[#BEFF47]",
+      },
+      {
+        icon: Scale, client: "Ministère de la Justice", sector: "Secteur public", period: "2020 - 2021",
+        title: "Plateforme critique pour le secteur de la justice",
+        challenge: "Développer et faire évoluer une plateforme critique pour le secteur de la justice, dans un contexte agile avec un fort enjeu de fiabilité.",
+        approach: "Développement full-stack front et back, cadrage produit avec les parties prenantes métier, mentoring des développeurs, Clean Code et revues de code, partage de connaissances en programmation fonctionnelle (Java Streams, fondamentaux Kotlin).",
+        outcome: "Une plateforme livrée en continu sur un système sensible de l'administration, avec une montée en compétence de l'équipe sur les pratiques de craftsmanship.",
+        tags: ["Java", "Kotlin", "Angular", "OpenShift", "Docker"],
+        color: "from-rose-500/10 to-transparent", border: "border-rose-500/20 hover:border-rose-400/40", tag: "text-rose-400",
       },
     ],
   },
@@ -64,7 +91,7 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
     labels: { challenge: "Context", approach: "Approach", outcome: "Outcome" },
     cases: [
       {
-        icon: Landmark, client: "Société Générale", sector: "Finance & Banking", period: "2024 — ongoing",
+        icon: Landmark, client: "Société Générale", sector: "Finance & Banking", period: "2024 - ongoing",
         title: "Counterparty risk engine",
         challenge: "Compute critical counterparty risk metrics in real time, in a heavily regulated banking environment, at massive data scale.",
         approach: "Designed and deployed a cloud-native microservices ecosystem on Azure & Kubernetes, processing data streams via Apache Spark and Kafka, algorithmic performance tuning, TDD/BDD and Clean Code, automated CI/CD (GitHub/Jenkins). Pioneered AI tooling (GitHub Copilot, Claude) adoption within the team.",
@@ -73,7 +100,7 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
         color: "from-blue-500/10 to-transparent", border: "border-blue-500/20 hover:border-blue-400/40", tag: "text-blue-400",
       },
       {
-        icon: Zap, client: "GRTgaz", sector: "Energy & Utilities", period: "2022 — 2024",
+        icon: Zap, client: "GRTgaz", sector: "Energy & Utilities", period: "2022 - 2024",
         title: "Energy distribution management platform",
         challenge: "Design an event-driven platform able to absorb real-time data streams, on a system critical to national gas distribution.",
         approach: "Event-driven microservices architecture, Java/Kotlin backend and TypeScript frontend with reactive programming (Reactor, Kafka), scoping workshops with business teams, CI/CD on GitLab, Terraform-driven AWS deployments.",
@@ -82,13 +109,40 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
         color: "from-yellow-500/10 to-transparent", border: "border-yellow-500/20 hover:border-yellow-400/40", tag: "text-yellow-400",
       },
       {
-        icon: ShoppingCart, client: "Groupe Casino", sector: "Retail & Distribution", period: "2021 — 2022",
+        icon: ShoppingCart, client: "Groupe Casino", sector: "Retail & Distribution", period: "2021 - 2022",
         title: "Campaign & offer engine",
         challenge: "Design the backend APIs for the campaign and commercial offer engine, at the scale of a major retail group.",
         approach: "API design in Kotlin and Java, TDD, BDD and functional programming practices, SOLID/KISS/DRY/YAGNI principles, continuous integration and deployment on GitLab and Google Cloud Platform.",
         outcome: "A robust, maintainable campaign engine delivered over just above a year, powering a core part of the group's commercial activity.",
         tags: ["Kotlin", "Java", "PostgreSQL", "GCP", "Kubernetes"],
         color: "from-[#BEFF47]/10 to-transparent", border: "border-[#BEFF47]/20 hover:border-[#BEFF47]/40", tag: "text-[#BEFF47]",
+      },
+      {
+        icon: Zap, client: "Enedis", sector: "Energy & Utilities", period: "2017 - 2020",
+        title: "Modernizing electricity distribution systems",
+        challenge: "Evolve critical electricity distribution systems while maintaining their reliability, with architecture design responsibilities.",
+        approach: "Full-stack development with a Java/Kotlin backend and Angular/TypeScript frontend, craftsmanship practices (TDD, ATDD, BDD, DDD, Hexagonal Architecture, Clean Code), continuous integration and automated deployments with Ansible.",
+        outcome: "Over three years contributing to the architecture and reliability of a system critical to national electricity distribution.",
+        tags: ["Java", "Kotlin", "Angular", "PostgreSQL", "Kafka"],
+        color: "from-yellow-500/10 to-transparent", border: "border-yellow-500/20 hover:border-yellow-400/40", tag: "text-yellow-400",
+      },
+      {
+        icon: ShoppingCart, client: "Galeries Lafayette", sector: "Retail & Distribution", period: "2020",
+        title: "Full-stack development in a craftsmanship team",
+        challenge: "Analyze and technically design new features within a craftsmanship-driven team, on a demanding retail platform.",
+        approach: "Full-stack development (front, back, API) in Java/Kotlin and Angular/TypeScript, Clean Code, TDD, BDD, DDD, Hexagonal Architecture, code reviews and mob programming, knowledge sharing through internal tech sessions.",
+        outcome: "Continuous feature delivery within a culture of technical excellence, on a platform deployed on Google Cloud Platform.",
+        tags: ["Java", "Kotlin", "Angular", "Kubernetes", "GCP"],
+        color: "from-[#BEFF47]/10 to-transparent", border: "border-[#BEFF47]/20 hover:border-[#BEFF47]/40", tag: "text-[#BEFF47]",
+      },
+      {
+        icon: Scale, client: "Ministère de la Justice", sector: "Public Sector", period: "2020 - 2021",
+        title: "Critical platform for the justice sector",
+        challenge: "Build and evolve a critical platform for the justice sector, in an agile context with a strong reliability requirement.",
+        approach: "Full-stack front and back-end development, product framing with business stakeholders, developer mentoring, Clean Code and code reviews, knowledge sharing on functional programming (Java Streams, Kotlin fundamentals).",
+        outcome: "A platform delivered continuously on a sensitive government system, with the team leveling up on craftsmanship practices.",
+        tags: ["Java", "Kotlin", "Angular", "OpenShift", "Docker"],
+        color: "from-rose-500/10 to-transparent", border: "border-rose-500/20 hover:border-rose-400/40", tag: "text-rose-400",
       },
     ],
   },
@@ -154,7 +208,7 @@ export default function CaseStudies({ lang }: { lang: Lang }) {
   const t = content[lang];
 
   return (
-    <section ref={ref} className="bg-[#0C0C12] py-28 relative overflow-hidden">
+    <section id="case-studies" ref={ref} className="bg-[#0C0C12] py-28 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] blob-lime opacity-15 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-8">

@@ -65,8 +65,9 @@ export default function Contact({ lang }: { lang: Lang }) {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", company: "", message: "", website: "" });
   const t = content[lang];
+  const [renderedAt] = useState(() => Date.now());
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,13 +76,14 @@ export default function Contact({ lang }: { lang: Lang }) {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, lang }),
+      body: JSON.stringify({ ...form, lang, elapsed: Date.now() - renderedAt }),
     });
     setLoading(false);
     if (res.ok) {
       setSent(true);
     } else {
-      setError(t.form.genericError);
+      const data = await res.json().catch(() => null);
+      setError(data?.error || t.form.genericError);
     }
   };
 
@@ -172,7 +174,12 @@ export default function Contact({ lang }: { lang: Lang }) {
                 <p className="text-[13px] text-[#8A8AA0] font-light">{t.form.sentDesc}</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="card-glow rounded-2xl p-8 space-y-4">
+              <form onSubmit={handleSubmit} className="card-glow rounded-2xl p-8 space-y-4 relative">
+                {/* Honeypot: hidden from real users, bots tend to fill every field */}
+                <div className="absolute left-[-9999px] w-px h-px overflow-hidden" aria-hidden="true">
+                  <label htmlFor="contact-website">Website</label>
+                  <input id="contact-website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e => setForm({...form, website: e.target.value})} />
+                </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="contact-name" className="block text-[10px] font-bold text-[#8A8AA0] tracking-[0.15em] uppercase mb-2">{t.form.name}</label>

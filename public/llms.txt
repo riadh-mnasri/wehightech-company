@@ -1,0 +1,38 @@
+# WeHighTech
+
+> WeHighTech is a French technology consultancy (SARL, SIREN 825 104 128) founded in 2017 and based in Paris, operated by Riadh Mnasri. It delivers software engineering, AI integration, digital transformation, data, and cybersecurity work for enterprise clients, primarily as senior technical leadership and architecture missions.
+
+## Services
+
+- Artificial Intelligence: LLMs, autonomous agents, RAG, computer vision.
+- Software Development: web and backend applications, scalable architectures, APIs.
+- Digital Transformation: strategy, audit, and rollout to modernize IT systems.
+- Data & Analytics: data pipelines, warehouses, real-time dashboards.
+- Cybersecurity: audits, Zero Trust architecture, GDPR compliance.
+- Mobile Applications: native and cross-platform iOS & Android.
+
+## Sectors and client references
+
+WeHighTech has delivered critical, long-running missions (typically 1-3 years) for enterprise and public-sector clients, including:
+
+- Finance & Banking: Société Générale, BNP Paribas, Caisse d'Épargne, BforBank.
+- Energy & Utilities: GRTgaz, Enedis.
+- Retail & Distribution: Groupe Casino, Galeries Lafayette.
+- Insurance: Europe Assistance.
+- Public Sector: Ministère de la Justice (French Ministry of Justice).
+
+Full case studies with technical detail: https://wehightech.com/fr#case-studies (French) and https://wehightech.com/en#case-studies (English).
+
+## Pages
+
+- Homepage (French): https://wehightech.com/fr
+- Homepage (English): https://wehightech.com/en
+- Legal notice: https://wehightech.com/fr/mentions-legales
+- Privacy policy: https://wehightech.com/fr/confidentialite
+- Terms of sale: https://wehightech.com/fr/cgv
+
+## Contact
+
+- Email: contact@wehightech.com
+- Phone: +33 1 78 53 87 80
+- Address: 66 Avenue des Champs-Élysées, 75008 Paris, France

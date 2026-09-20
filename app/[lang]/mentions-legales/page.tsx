@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { isLang, type Lang } from "@/lib/i18n";
+import { legalMetadata } from "@/lib/seo";
 import LegalPage, { type LegalSection } from "@/components/LegalPage";
 
-const content: Record<Lang, { eyebrow: string; title: string; updated: string; sections: LegalSection[] }> = {
+const content: Record<Lang, { eyebrow: string; title: string; description: string; updated: string; sections: LegalSection[] }> = {
   fr: {
     eyebrow: "Informations légales",
     title: "Mentions légales",
+    description: "Mentions légales de WeHighTech (SIREN 825 104 128) : éditeur, hébergement, propriété intellectuelle.",
     updated: "Dernière mise à jour : septembre 2026",
     sections: [
       {
@@ -14,7 +16,7 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
           "Le site wehightech.com est édité par la société WEHIGHTECH, SARL au capital social de 10 000 €, immatriculée au Registre du Commerce et des Sociétés de Paris sous le numéro SIREN 825 104 128 (SIRET 825 104 128 00020), numéro de TVA intracommunautaire FR48 825104128.",
           "Siège social : 66 Avenue des Champs-Élysées, 75008 Paris, France.",
           "Directeur de la publication : Riadh Mnasri, en qualité de gérant.",
-          "Contact : contact@wehightech.com — 01 78 53 87 80.",
+          "Contact : contact@wehightech.com · 01 78 53 87 80.",
         ],
       },
       {
@@ -40,6 +42,7 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
   en: {
     eyebrow: "Legal information",
     title: "Legal notice",
+    description: "WeHighTech legal notice (SIREN 825 104 128): publisher, hosting, intellectual property.",
     updated: "Last updated: September 2026",
     sections: [
       {
@@ -48,7 +51,7 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
           "The wehightech.com website is published by WEHIGHTECH, a French SARL (limited liability company) with a share capital of €10,000, registered with the Paris Trade and Companies Register under SIREN number 825 104 128 (SIRET 825 104 128 00020), intra-community VAT number FR48 825104128.",
           "Registered office: 66 Avenue des Champs-Élysées, 75008 Paris, France.",
           "Publication director: Riadh Mnasri, as company manager (gérant).",
-          "Contact: contact@wehightech.com — +33 1 78 53 87 80.",
+          "Contact: contact@wehightech.com · +33 1 78 53 87 80.",
         ],
       },
       {
@@ -76,7 +79,7 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
 export async function generateMetadata({ params }: PageProps<"/[lang]/mentions-legales">): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang: Lang = isLang(rawLang) ? rawLang : "fr";
-  return { title: content[lang].title };
+  return legalMetadata(lang, "/mentions-legales", content[lang].title, content[lang].description);
 }
 
 export default async function MentionsLegalesPage({ params }: PageProps<"/[lang]/mentions-legales">) {

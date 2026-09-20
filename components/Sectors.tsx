@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Landmark, Zap, ShoppingCart, Shield } from "lucide-react";
+import { Landmark, Zap, ShoppingCart, Shield, Scale } from "lucide-react";
 import type { Lang } from "@/lib/i18n";
 import { useTilt } from "@/lib/useTilt";
 
@@ -40,7 +40,7 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
       {
         icon: ShoppingCart, title: "Retail & Distribution",
         desc: "Plateformes e-commerce, supply chain intelligente, data client et personnalisation à grande échelle.",
-        clients: ["Groupe Casino"],
+        clients: ["Groupe Casino", "Galeries Lafayette"],
         color: "from-[#BEFF47]/10 to-transparent", border: "border-[#BEFF47]/20 hover:border-[#BEFF47]/40", tag: "text-[#BEFF47]",
         clientLabel: (n) => `${n} client${n > 1 ? "s" : ""}`,
       },
@@ -49,6 +49,13 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
         desc: "Digitalisation des parcours assurantiels, automatisation des sinistres et analyse prédictive des risques.",
         clients: ["Europe Assistance"],
         color: "from-violet-500/10 to-transparent", border: "border-violet-500/20 hover:border-violet-400/40", tag: "text-violet-400",
+        clientLabel: (n) => `${n} client${n > 1 ? "s" : ""}`,
+      },
+      {
+        icon: Scale, title: "Secteur public",
+        desc: "Modernisation de plateformes critiques pour l'administration, dans un cadre agile et exigeant.",
+        clients: ["Ministère de la Justice"],
+        color: "from-rose-500/10 to-transparent", border: "border-rose-500/20 hover:border-rose-400/40", tag: "text-rose-400",
         clientLabel: (n) => `${n} client${n > 1 ? "s" : ""}`,
       },
     ],
@@ -75,7 +82,7 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
       {
         icon: ShoppingCart, title: "Retail & Distribution",
         desc: "E-commerce platforms, intelligent supply chain, customer data and large-scale personalization.",
-        clients: ["Groupe Casino"],
+        clients: ["Groupe Casino", "Galeries Lafayette"],
         color: "from-[#BEFF47]/10 to-transparent", border: "border-[#BEFF47]/20 hover:border-[#BEFF47]/40", tag: "text-[#BEFF47]",
         clientLabel: (n) => `${n} client${n > 1 ? "s" : ""}`,
       },
@@ -84,6 +91,13 @@ const content: Record<Lang, { eyebrow: string; heading: [string, string]; sub: s
         desc: "Digitizing insurance journeys, claims automation and predictive risk analysis.",
         clients: ["Europe Assistance"],
         color: "from-violet-500/10 to-transparent", border: "border-violet-500/20 hover:border-violet-400/40", tag: "text-violet-400",
+        clientLabel: (n) => `${n} client${n > 1 ? "s" : ""}`,
+      },
+      {
+        icon: Scale, title: "Public Sector",
+        desc: "Modernizing critical platforms for government administration, in a demanding agile framework.",
+        clients: ["Ministère de la Justice"],
+        color: "from-rose-500/10 to-transparent", border: "border-rose-500/20 hover:border-rose-400/40", tag: "text-rose-400",
         clientLabel: (n) => `${n} client${n > 1 ? "s" : ""}`,
       },
     ],
@@ -103,7 +117,7 @@ function SectorCard({ s, i, inView }: { s: Sector; i: number; inView: boolean })
       style={style}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      className={`card-glow rounded-2xl p-8 border ${s.border} transition-all duration-300 group relative overflow-hidden`}
+      className={`card-glow rounded-2xl p-8 border ${s.border} transition-all duration-300 group relative overflow-hidden ${i === 4 ? "md:col-span-2" : ""}`}
     >
       <div className={`absolute inset-0 bg-gradient-to-br ${s.color} pointer-events-none`} />
       <div className="relative z-10">

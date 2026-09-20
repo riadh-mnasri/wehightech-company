@@ -15,6 +15,30 @@ const fraunces = Fraunces({
 
 const baseUrl = "https://wehightech.com";
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "WeHighTech",
+  legalName: "WEHIGHTECH",
+  url: baseUrl,
+  logo: `${baseUrl}/icon.svg`,
+  foundingDate: "2017-01-20",
+  email: "contact@wehightech.com",
+  telephone: "+33178538780",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "66 Avenue des Champs-Élysées",
+    postalCode: "75008",
+    addressLocality: "Paris",
+    addressCountry: "FR",
+  },
+  sameAs: [
+    "https://www.linkedin.com/company/wehightech",
+    "https://x.com/wehightech",
+    "https://github.com/wehightech",
+  ],
+};
+
 const meta: Record<Lang, { title: string; description: string; ogDescription: string; twitterDescription: string }> = {
   fr: {
     title: "WeHighTech : Excellence Technologique & IA",
@@ -63,7 +87,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     robots: { index: true, follow: true },
     alternates: {
       canonical: `${baseUrl}/${lang}`,
-      languages: { fr: `${baseUrl}/fr`, en: `${baseUrl}/en` },
+      languages: { fr: `${baseUrl}/fr`, en: `${baseUrl}/en`, "x-default": `${baseUrl}/fr` },
     },
   };
 }
@@ -78,6 +102,10 @@ export default async function RootLayout({
   return (
     <html lang={rawLang} className={`${geist.variable} ${fraunces.variable} antialiased`}>
       <body className="bg-[#050508] text-[#EEEEF5]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {children}
         <Analytics />
       </body>

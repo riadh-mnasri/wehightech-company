@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { isLang, type Lang } from "@/lib/i18n";
+import { legalMetadata } from "@/lib/seo";
 import LegalPage, { type LegalSection } from "@/components/LegalPage";
 
-const content: Record<Lang, { eyebrow: string; title: string; updated: string; sections: LegalSection[] }> = {
+const content: Record<Lang, { eyebrow: string; title: string; description: string; updated: string; sections: LegalSection[] }> = {
   fr: {
     eyebrow: "Informations légales",
     title: "Politique de confidentialité",
+    description: "Comment WeHighTech traite les données personnelles collectées via le formulaire de contact, conformément au RGPD.",
     updated: "Dernière mise à jour : septembre 2026",
     sections: [
       {
@@ -44,6 +46,7 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
   en: {
     eyebrow: "Legal information",
     title: "Privacy policy",
+    description: "How WeHighTech processes personal data collected through the contact form, in line with GDPR.",
     updated: "Last updated: September 2026",
     sections: [
       {
@@ -84,7 +87,7 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
 export async function generateMetadata({ params }: PageProps<"/[lang]/confidentialite">): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang: Lang = isLang(rawLang) ? rawLang : "fr";
-  return { title: content[lang].title };
+  return legalMetadata(lang, "/confidentialite", content[lang].title, content[lang].description);
 }
 
 export default async function ConfidentialitePage({ params }: PageProps<"/[lang]/confidentialite">) {

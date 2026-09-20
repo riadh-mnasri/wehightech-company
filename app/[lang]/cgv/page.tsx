@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { isLang, type Lang } from "@/lib/i18n";
+import { legalMetadata } from "@/lib/seo";
 import LegalPage, { type LegalSection } from "@/components/LegalPage";
 
-const content: Record<Lang, { eyebrow: string; title: string; updated: string; sections: LegalSection[] }> = {
+const content: Record<Lang, { eyebrow: string; title: string; description: string; updated: string; sections: LegalSection[] }> = {
   fr: {
     eyebrow: "Informations légales",
     title: "Conditions générales de vente",
-    updated: "Dernière mise à jour : septembre 2026 — modèle standard, à valider avant application commerciale",
+    description: "Conditions générales de vente des prestations de conseil et développement de WeHighTech.",
+    updated: "Dernière mise à jour : septembre 2026 (modèle standard, à valider avant application commerciale)",
     sections: [
       {
         heading: "Objet",
@@ -62,7 +64,8 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
   en: {
     eyebrow: "Legal information",
     title: "General terms of sale",
-    updated: "Last updated: September 2026 — standard template, pending review before commercial use",
+    description: "General terms of sale for WeHighTech's consulting and development services.",
+    updated: "Last updated: September 2026 (standard template, pending review before commercial use)",
     sections: [
       {
         heading: "Purpose",
@@ -120,7 +123,7 @@ const content: Record<Lang, { eyebrow: string; title: string; updated: string; s
 export async function generateMetadata({ params }: PageProps<"/[lang]/cgv">): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang: Lang = isLang(rawLang) ? rawLang : "fr";
-  return { title: content[lang].title };
+  return legalMetadata(lang, "/cgv", content[lang].title, content[lang].description);
 }
 
 export default async function CgvPage({ params }: PageProps<"/[lang]/cgv">) {
