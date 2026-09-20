@@ -2,14 +2,14 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
+import { Mail, MapPin, CheckCircle } from "lucide-react";
 import type { Lang } from "@/lib/i18n";
 
 const content: Record<Lang, {
   eyebrow: string;
   heading: [string, string];
   sub: string;
-  infoLabels: { email: string; phone: string; hq: string };
+  infoLabels: { email: string; hq: string };
   available: string;
   hours: string;
   responseTime: [string, string];
@@ -25,7 +25,7 @@ const content: Record<Lang, {
     eyebrow: "Contact",
     heading: ["Démarrons votre", "projet ensemble."],
     sub: "Réponse sous 24h ouvrées. Discutons de vos objectifs et définissons ensemble la meilleure approche.",
-    infoLabels: { email: "Email", phone: "Téléphone", hq: "Siège" },
+    infoLabels: { email: "Email", hq: "Siège" },
     available: "Disponible",
     hours: "Lun–Ven, 9h–18h.",
     responseTime: ["Réponse garantie sous ", "24h ouvrées"],
@@ -43,7 +43,7 @@ const content: Record<Lang, {
     eyebrow: "Contact",
     heading: ["Let's start your", "project together."],
     sub: "Response within 24 business hours. Let's discuss your goals and define the best approach together.",
-    infoLabels: { email: "Email", phone: "Phone", hq: "Headquarters" },
+    infoLabels: { email: "Email", hq: "Headquarters" },
     available: "Available",
     hours: "Mon–Fri, 9am–6pm.",
     responseTime: ["Guaranteed response within ", "24 business hours"],
@@ -134,7 +134,6 @@ export default function Contact({ lang }: { lang: Lang }) {
           >
             {[
               { icon: Mail, label: t.infoLabels.email, value: "contact@wehightech.com" },
-              { icon: Phone, label: t.infoLabels.phone, value: "01 78 53 87 80" },
               { icon: MapPin, label: t.infoLabels.hq, value: "66 Avenue des Champs-Élysées, 75008 Paris" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="card-glow rounded-xl p-5 flex items-center gap-4">

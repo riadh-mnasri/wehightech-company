@@ -24,7 +24,6 @@ const organizationJsonLd = {
   logo: `${baseUrl}/icon.svg`,
   foundingDate: "2017-01-20",
   email: "contact@wehightech.com",
-  telephone: "+33178538780",
   address: {
     "@type": "PostalAddress",
     streetAddress: "66 Avenue des Champs-Élysées",

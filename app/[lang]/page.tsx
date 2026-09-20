@@ -17,7 +17,6 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import CursorGlow from "@/components/CursorGlow";
 import HashScroll from "@/components/HashScroll";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
@@ -27,7 +26,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <CursorGlow />
       <HashScroll />
       <main className="flex flex-col min-h-screen bg-[#050508]">
         <Navbar lang={lang} />
