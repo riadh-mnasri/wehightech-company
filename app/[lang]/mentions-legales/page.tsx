@@ -16,7 +16,7 @@ const content: Record<Lang, { eyebrow: string; title: string; description: strin
           "Le site wehightech.com est édité par la société WEHIGHTECH, SARL au capital social de 10 000 €, immatriculée au Registre du Commerce et des Sociétés de Paris sous le numéro SIREN 825 104 128 (SIRET 825 104 128 00020), numéro de TVA intracommunautaire FR48 825104128.",
           "Siège social : 66 Avenue des Champs-Élysées, 75008 Paris, France.",
           "Directeur de la publication : Riadh Mnasri, en qualité de gérant.",
-          "Contact : contact@wehightech.com.",
+          "Contact : riadh.mnasri@wehightech.com.",
         ],
       },
       {
@@ -51,7 +51,7 @@ const content: Record<Lang, { eyebrow: string; title: string; description: strin
           "The wehightech.com website is published by WEHIGHTECH, a French SARL (limited liability company) with a share capital of €10,000, registered with the Paris Trade and Companies Register under SIREN number 825 104 128 (SIRET 825 104 128 00020), intra-community VAT number FR48 825104128.",
           "Registered office: 66 Avenue des Champs-Élysées, 75008 Paris, France.",
           "Publication director: Riadh Mnasri, as company manager (gérant).",
-          "Contact: contact@wehightech.com.",
+          "Contact: riadh.mnasri@wehightech.com.",
         ],
       },
       {

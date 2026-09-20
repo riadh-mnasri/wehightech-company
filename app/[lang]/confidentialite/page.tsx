@@ -13,7 +13,7 @@ const content: Record<Lang, { eyebrow: string; title: string; description: strin
       {
         heading: "Responsable du traitement",
         body: [
-          "WEHIGHTECH, SARL au capital de 10 000 €, SIREN 825 104 128, 66 Avenue des Champs-Élysées, 75008 Paris, est responsable du traitement des données personnelles collectées sur ce site. Pour toute question, contactez-nous à contact@wehightech.com.",
+          "WEHIGHTECH, SARL au capital de 10 000 €, SIREN 825 104 128, 66 Avenue des Champs-Élysées, 75008 Paris, est responsable du traitement des données personnelles collectées sur ce site. Pour toute question, contactez-nous à riadh.mnasri@wehightech.com.",
         ],
       },
       {
@@ -38,7 +38,7 @@ const content: Record<Lang, { eyebrow: string; title: string; description: strin
       {
         heading: "Vos droits",
         body: [
-          "Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition sur vos données personnelles. Vous pouvez exercer ces droits en écrivant à contact@wehightech.com. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (cnil.fr).",
+          "Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition sur vos données personnelles. Vous pouvez exercer ces droits en écrivant à riadh.mnasri@wehightech.com. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (cnil.fr).",
         ],
       },
     ],
@@ -52,7 +52,7 @@ const content: Record<Lang, { eyebrow: string; title: string; description: strin
       {
         heading: "Data controller",
         body: [
-          "WEHIGHTECH, a French SARL with a share capital of €10,000, SIREN 825 104 128, 66 Avenue des Champs-Élysées, 75008 Paris, is the controller of the personal data collected on this site. For any question, contact us at contact@wehightech.com.",
+          "WEHIGHTECH, a French SARL with a share capital of €10,000, SIREN 825 104 128, 66 Avenue des Champs-Élysées, 75008 Paris, is the controller of the personal data collected on this site. For any question, contact us at riadh.mnasri@wehightech.com.",
         ],
       },
       {
@@ -77,7 +77,7 @@ const content: Record<Lang, { eyebrow: string; title: string; description: strin
       {
         heading: "Your rights",
         body: [
-          "Under GDPR, you have the right to access, rectify, erase and object to the processing of your personal data. You can exercise these rights by emailing contact@wehightech.com. You also have the right to lodge a complaint with the French data protection authority (CNIL, cnil.fr).",
+          "Under GDPR, you have the right to access, rectify, erase and object to the processing of your personal data. You can exercise these rights by emailing riadh.mnasri@wehightech.com. You also have the right to lodge a complaint with the French data protection authority (CNIL, cnil.fr).",
         ],
       },
     ],

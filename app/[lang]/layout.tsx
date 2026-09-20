@@ -23,7 +23,7 @@ const organizationJsonLd = {
   url: baseUrl,
   logo: `${baseUrl}/icon.svg`,
   foundingDate: "2017-01-20",
-  email: "contact@wehightech.com",
+  email: "riadh.mnasri@wehightech.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "66 Avenue des Champs-Élysées",

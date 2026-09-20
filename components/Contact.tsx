@@ -133,7 +133,7 @@ export default function Contact({ lang }: { lang: Lang }) {
             className="lg:col-span-2 space-y-3"
           >
             {[
-              { icon: Mail, label: t.infoLabels.email, value: "contact@wehightech.com" },
+              { icon: Mail, label: t.infoLabels.email, value: "riadh.mnasri@wehightech.com" },
               { icon: MapPin, label: t.infoLabels.hq, value: "66 Avenue des Champs-Élysées, 75008 Paris" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="card-glow rounded-xl p-5 flex items-center gap-4">

@@ -29,7 +29,7 @@ const content: Record<Lang, {
       ],
       Contact: [
         { label: "Démarrer un projet", href: "#contact" },
-        { label: "Email", href: "mailto:contact@wehightech.com" },
+        { label: "Email", href: "mailto:riadh.mnasri@wehightech.com" },
       ],
     },
     legal: [
@@ -59,7 +59,7 @@ const content: Record<Lang, {
       ],
       Contact: [
         { label: "Start a project", href: "#contact" },
-        { label: "Email", href: "mailto:contact@wehightech.com" },
+        { label: "Email", href: "mailto:riadh.mnasri@wehightech.com" },
       ],
     },
     legal: [
