@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
 
@@ -31,4 +32,4 @@ const nextConfig: NextConfig = {
   }),
 };
 
-export default nextConfig;
+export default isGitHubPages ? nextConfig : withBotId(nextConfig);

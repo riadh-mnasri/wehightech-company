@@ -1,19 +1,22 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { checkBotId } from "botid/server";
 import { isLang, type Lang } from "@/lib/i18n";
 
-const errors: Record<Lang, { missingFields: string; missingConfig: string; tooFast: string; rateLimited: string }> = {
+const errors: Record<Lang, { missingFields: string; missingConfig: string; tooFast: string; rateLimited: string; botDetected: string }> = {
   fr: {
     missingFields: "Champs requis manquants",
     missingConfig: "Configuration email manquante",
     tooFast: "Veuillez réessayer.",
     rateLimited: "Trop de tentatives. Réessayez dans quelques minutes.",
+    botDetected: "Requête refusée.",
   },
   en: {
     missingFields: "Missing required fields",
     missingConfig: "Missing email configuration",
     tooFast: "Please try again.",
     rateLimited: "Too many attempts. Please try again in a few minutes.",
+    botDetected: "Request denied.",
   },
 };
 
@@ -35,6 +38,11 @@ export async function POST(req: Request) {
   const { name, email, company, message, lang: rawLang, website, elapsed } = await req.json();
   const lang: Lang = isLang(rawLang) ? rawLang : "fr";
   const t = errors[lang];
+
+  const { isBot } = await checkBotId();
+  if (isBot) {
+    return NextResponse.json({ error: t.botDetected }, { status: 403 });
+  }
 
   // Honeypot: a real visitor never sees or fills this field.
   if (website) {
