@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import type { Lang } from "@/lib/i18n";
 
+const yearsOfExpertise = new Date().getFullYear() - 2017;
+
 const content: Record<Lang, {
   eyebrow: string;
   stats: { target: number; suffix: string; label: string; desc: string }[];
@@ -11,19 +13,19 @@ const content: Record<Lang, {
   fr: {
     eyebrow: "WeHighTech en chiffres",
     stats: [
-      { target: 150, suffix: "+", label: "Projets livrés", desc: "Depuis 2017" },
-      { target: 8, suffix: " ans", label: "D'expertise", desc: "Au service de l'innovation" },
-      { target: 98, suffix: "%", label: "Satisfaction client", desc: "Mesuré sur chaque projet" },
-      { target: 10, suffix: "+", label: "Clients grands comptes", desc: "CAC40 & leaders nationaux" },
+      { target: yearsOfExpertise, suffix: " ans", label: "D'expertise", desc: "Depuis 2017" },
+      { target: 10, suffix: "", label: "Grands comptes", desc: "CAC40, leaders nationaux & secteur public" },
+      { target: 5, suffix: "", label: "Secteurs d'activité", desc: "Banque, énergie, retail, assurance, public" },
+      { target: 3, suffix: " ans", label: "Chez un même client", desc: "Des missions longues, pas du one-shot" },
     ],
   },
   en: {
     eyebrow: "WeHighTech in numbers",
     stats: [
-      { target: 150, suffix: "+", label: "Projects delivered", desc: "Since 2017" },
-      { target: 8, suffix: " yrs", label: "Of expertise", desc: "Driving innovation" },
-      { target: 98, suffix: "%", label: "Client satisfaction", desc: "Measured on every project" },
-      { target: 10, suffix: "+", label: "Major accounts", desc: "CAC40 & national leaders" },
+      { target: yearsOfExpertise, suffix: " yrs", label: "Of expertise", desc: "Since 2017" },
+      { target: 10, suffix: "", label: "Major accounts", desc: "CAC40, national leaders & public sector" },
+      { target: 5, suffix: "", label: "Industries", desc: "Banking, energy, retail, insurance, public" },
+      { target: 3, suffix: " yrs", label: "With a single client", desc: "Long-term missions, not one-offs" },
     ],
   },
 };
