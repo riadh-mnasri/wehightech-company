@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { Lang } from "@/lib/i18n";
 
@@ -59,7 +59,6 @@ function AnimatedWord({ word, delay }: { word: string; delay: number }) {
 export default function Hero({ lang }: { lang: Lang }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const [mounted, setMounted] = useState(false);
   const t = content[lang];
 
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
@@ -67,8 +66,6 @@ export default function Hero({ lang }: { lang: Lang }) {
   const violetBlobY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
-  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -153,22 +150,18 @@ export default function Hero({ lang }: { lang: Lang }) {
         {/* Headline */}
         <div className="mb-10">
           <h1 className="text-[clamp(3.5rem,9vw,9rem)] font-black leading-[0.92] tracking-[-0.03em] text-white">
-            {mounted && (
-              <>
-                <AnimatedWord word={t.words[0]} delay={0.2} />
-                <AnimatedWord word={t.words[1]} delay={0.35} />
-                <div className="overflow-hidden">
-                  <motion.div
-                    initial={{ y: "110%", opacity: 0 }}
-                    animate={{ y: "0%", opacity: 1 }}
-                    transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-[#BEFF47]"
-                  >
-                    {t.words[2]}
-                  </motion.div>
-                </div>
-              </>
-            )}
+            <AnimatedWord word={t.words[0]} delay={0.2} />
+            <AnimatedWord word={t.words[1]} delay={0.35} />
+            <div className="overflow-hidden">
+              <motion.div
+                initial={{ y: "110%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[#BEFF47]"
+              >
+                {t.words[2]}
+              </motion.div>
+            </div>
           </h1>
         </div>
 

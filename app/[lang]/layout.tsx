@@ -17,7 +17,7 @@ const baseUrl = "https://wehightech.com";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   name: "WeHighTech",
   legalName: "WEHIGHTECH",
   url: baseUrl,
@@ -31,6 +31,13 @@ const organizationJsonLd = {
     addressLocality: "Paris",
     addressCountry: "FR",
   },
+  founder: {
+    "@type": "Person",
+    name: "Riadh MNASRI",
+    url: "https://riadh-mnasri.pro",
+    jobTitle: "Founder",
+  },
+  areaServed: "FR",
   sameAs: [
     "https://www.linkedin.com/company/wehightech",
     "https://x.com/wehightech",
