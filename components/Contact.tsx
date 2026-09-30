@@ -2,8 +2,11 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, MapPin, CheckCircle } from "lucide-react";
+import { Mail, MapPin, CheckCircle, CalendarClock } from "lucide-react";
 import type { Lang } from "@/lib/i18n";
+
+// Leave empty to hide the booking block.
+const calendlyUrl = "";
 
 const content: Record<Lang, {
   eyebrow: string;
@@ -13,6 +16,7 @@ const content: Record<Lang, {
   available: string;
   hours: string;
   responseTime: [string, string];
+  booking: { title: string; desc: string; cta: string };
   form: {
     name: string; email: string; company: string; project: string;
     namePlaceholder: string; emailPlaceholder: string; companyPlaceholder: string; projectPlaceholder: string;
@@ -29,6 +33,7 @@ const content: Record<Lang, {
     available: "Disponible",
     hours: "Lun–Ven, 9h–18h.",
     responseTime: ["Réponse garantie sous ", "24h ouvrées"],
+    booking: { title: "Réserver un appel de 30 min", desc: "Choisissez un créneau directement dans l'agenda, sans échange d'emails.", cta: "Choisir un créneau →" },
     form: {
       name: "Nom *", email: "Email *", company: "Entreprise", project: "Projet *",
       namePlaceholder: "Jean Dupont", emailPlaceholder: "jean@entreprise.com",
@@ -47,6 +52,7 @@ const content: Record<Lang, {
     available: "Available",
     hours: "Mon–Fri, 9am–6pm.",
     responseTime: ["Guaranteed response within ", "24 business hours"],
+    booking: { title: "Book a 30-min call", desc: "Pick a slot straight from the calendar, no email back-and-forth.", cta: "Pick a slot →" },
     form: {
       name: "Name *", email: "Email *", company: "Company", project: "Project *",
       namePlaceholder: "John Doe", emailPlaceholder: "john@company.com",
@@ -132,6 +138,28 @@ export default function Contact({ lang }: { lang: Lang }) {
             transition={{ delay: 0.15 }}
             className="lg:col-span-2 space-y-3"
           >
+            {calendlyUrl && (
+              <div className="card-glow rounded-xl p-5 border border-[#BEFF47]/20">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-[#BEFF47]/10 flex items-center justify-center flex-shrink-0">
+                    <CalendarClock size={14} className="text-[#BEFF47]" />
+                  </div>
+                  <div>
+                    <div className="text-[13px] text-white font-bold">{t.booking.title}</div>
+                    <p className="text-[12px] text-[#8A8AA0] leading-relaxed font-light">{t.booking.desc}</p>
+                  </div>
+                </div>
+                <a
+                  href={lang === "en" ? `${calendlyUrl}?locale=en` : calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-3 text-center bg-[#BEFF47] text-[#050508] font-bold text-sm hover:bg-white transition-colors duration-200 tracking-wide"
+                >
+                  {t.booking.cta}
+                </a>
+              </div>
+            )}
+
             {[
               { icon: Mail, label: t.infoLabels.email, value: "contact@wehightech.com" },
               { icon: MapPin, label: t.infoLabels.hq, value: "66 Avenue des Champs-Élysées, 75008 Paris" },
