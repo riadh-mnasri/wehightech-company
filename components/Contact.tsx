@@ -6,7 +6,7 @@ import { Mail, MapPin, CheckCircle, CalendarClock } from "lucide-react";
 import type { Lang } from "@/lib/i18n";
 
 // Leave empty to hide the booking block.
-const calendlyUrl = "";
+const calendlyUrl = "https://calendly.com/riadh-mnasri";
 
 const content: Record<Lang, {
   eyebrow: string;
